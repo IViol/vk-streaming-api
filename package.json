@@ -1,0 +1,55 @@
+{
+  "name": "vk-streaming-api",
+  "version": "0.1.0",
+  "description": "Node wrapper for VK Streaming API",
+  "main": "lib/index.js",
+  "scripts": {
+    "compile": "./node_modules/.bin/babel src --out-dir lib",
+    "lint": "./node_modules/.bin/eslint .",
+    "deploy": "npm run lint && npm run compile"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:IViol/vk-streaming-api.git"
+  },
+  "author": "Ivan Violentov <violentoff@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "bluebird": "3.5.0",
+    "debug": "2.6.8",
+    "request": "2.81.0",
+    "request-promise": "4.2.1",
+    "ws": "3.0.0"
+  },
+  "devDependencies": {
+    "babel-cli": "6.24.1",
+    "babel-eslint": "7.2.3",
+    "babel-preset-es2015": "6.24.1",
+    "eslint": "4.2.0",
+    "eslint-config-standard": "10.2.1",
+    "eslint-plugin-babel": "4.1.1",
+    "eslint-plugin-import": "2.7.0",
+    "eslint-plugin-node": "5.1.0",
+    "eslint-plugin-promise": "3.5.0",
+    "eslint-plugin-standard": "3.0.1"
+  },
+  "babel": {
+    "presets": ["es2015"]
+  },
+  "eslintConfig": {
+    "parser"  : "babel-eslint",
+    "extends" : [
+      "standard"
+    ],
+    "plugins" : [
+      "babel"
+    ],
+    "rules": {
+      "semi": [2, "never"],
+      "comma-dangle": [2, "always-multiline"],
+      "space-before-function-paren": [2, "never"],
+      "array-bracket-spacing": ["error", "never"],
+      "newline-before-return": ["error"]
+    }
+  }
+}
