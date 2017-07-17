@@ -100,10 +100,10 @@ class VKStreamingAPI {
   getStream() {
     const wss = new WebSocket(`wss://${this.__endpoint}/stream?key=${this.__key}`)
 
-    wss.on('open', this.__onOpen)
-    wss.on('close', this.__onClose)
-    wss.on('error', this.__onError)
-    wss.on('unexpected-response', this.__onUnexpectedResponse)
+    wss.on('open', () => this.__onOpen())
+    wss.on('close', () => this.__onClose())
+    wss.on('error', err => this.__onError(err))
+    wss.on('unexpected-response', (...args) => this.__onUnexpectedResponse(...args))
     wss.on('message', data => this.__onMessage(data))
 
     return Promise.resolve(wss)
